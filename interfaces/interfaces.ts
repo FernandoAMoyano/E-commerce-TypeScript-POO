@@ -1,23 +1,23 @@
-interface IProduct {
+export interface IProduct {
   id: number;
   title: string;
   price: number;
   image?: string;
 }
 
-interface ICartItem extends IProduct {
+export interface ICartItem extends IProduct {
   quantity: number;
 }
 
-interface IEventListener<T = any> {
+export interface IEventListener<T = any> {
   (data: T): void;
 }
 
-interface IObserver {
+export interface IObserver {
   update(event: string, data: any): void;
 }
 
-interface ICartManager {
+export interface ICartManager {
   addItem(product: IProduct, quantity?: number): void;
   removeItem(productId: number): void;
   updateQuantity(productId: number, newQuantity: number): void;
@@ -26,13 +26,13 @@ interface ICartManager {
   clear(): void;
 }
 
-interface IProductRepository {
+export interface IProductRepository {
   getAllProducts(): IProduct[];
   getProductById(id: number): IProduct | undefined;
 }
 
 // Enums para eventos (más type-safe que strings)
-enum CartEvents {
+export enum CartEvents {
   ITEM_ADDED = "cart:item-added",
   ITEM_REMOVED = "cart:item-removed",
   QUANTITY_UPDATED = "cart:quantity-updated",
@@ -40,7 +40,7 @@ enum CartEvents {
   CART_CLEARED = "cart:cleared",
 }
 
-enum UIEvents {
+export enum UIEvents {
   PRODUCT_CLICKED = "ui:product-clicked",
   CART_TOGGLED = "ui:cart-toggled",
 }

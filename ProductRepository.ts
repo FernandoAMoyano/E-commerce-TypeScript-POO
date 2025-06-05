@@ -1,6 +1,6 @@
 import { IProduct, IProductRepository } from "./interfaces/interfaces";
 
-class ProductRepository implements IProductRepository {
+export class ProductRepository implements IProductRepository {
   private readonly products: IProduct[] = [
     {
       id: 1,

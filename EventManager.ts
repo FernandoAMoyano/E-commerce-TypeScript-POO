@@ -1,6 +1,6 @@
 import { IEventListener } from "./interfaces/interfaces";
 
-class EventManager {
+export class EventManager {
   private static instance: EventManager;
   private listeners: Map<string, IEventListener[]> = new Map();
 

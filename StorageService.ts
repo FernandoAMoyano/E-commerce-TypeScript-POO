@@ -1,6 +1,6 @@
 import { ICartItem } from "./interfaces/interfaces";
 
-class StorageService {
+export class StorageService {
   private static readonly CART_KEY = "cart";
   private static readonly CHECKOUT_KEY = "checkoutCart";
 

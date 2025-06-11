@@ -1,7 +1,7 @@
 import { CartEvents, ICartItem } from "./interfaces/interfaces";
 import { NotificationService } from "./NotificationService";
 import { CartManager } from "./cartManager";
-import { BaseUIComponent } from "./BaseUiComponent";
+import { BaseUIComponent } from "./BaseUIComponent";
 
 export class CartComponent extends BaseUIComponent {
   private itemsContainer: HTMLElement | null = null;

@@ -8,7 +8,7 @@ import {
 } from "./interfaces/interfaces";
 import { StorageService } from "./StorageService";
 
-class CartManager implements ICartManager {
+export class CartManager implements ICartManager {
   private static instance: CartManager;
   private items: CartItem[] = [];
   private eventManager: EventManager;

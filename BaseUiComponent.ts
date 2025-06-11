@@ -5,7 +5,7 @@ import {
   UIEvents,
 } from "./interfaces/interfaces";
 
-abstract class BaseUIComponent {
+export abstract class BaseUIComponent {
   protected eventManager: EventManager;
 
   constructor() {

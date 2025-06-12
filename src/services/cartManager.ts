@@ -1,11 +1,10 @@
 import { CartItem } from "../entities/CartItem";
-import { EventManager } from "../../EventManager";
-import {
-  CartEvents,
-  ICartItem,
-  ICartManager,
-  IProduct,
-} from "../types/interfaces/IProduct";
+import { CartEvents } from "../types/enums/CartEvents";
+import { ICartItem } from "../types/interfaces/ICartItem";
+import { ICartManager } from "../types/interfaces/ICartManager";
+import { IProduct } from "../types/interfaces/IProduct";
+import { EventManager } from "./EventManager";
+
 import { StorageService } from "./StorageService";
 
 export class CartManager implements ICartManager {

@@ -1,7 +1,6 @@
 import { CartComponent } from "../components/CartComponent";
 import { CartManager } from "../services/cartManager";
 import { CheckoutComponent } from "../components/CheckoutComponent";
-import { EventManager } from "../../EventManager";
 import { NotificationService } from "../services/NotificationService";
 import { IProductRepository } from "../types/interfaces/IProductRepository";
 import { IProduct } from "../types/interfaces/IProduct";
@@ -10,6 +9,7 @@ import { CartEvents } from "../types/enums/CartEvents";
 import { ICartItem } from "../types/interfaces/ICartItem";
 import { ProductListComponent } from "../components/BaseUIComponent";
 import { ProductRepository } from "../repositories/ProductRepository";
+import { EventManager } from "../services/EventManager";
 
 export class ApplicationController {
   private cartManager: CartManager;

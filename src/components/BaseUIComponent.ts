@@ -1,9 +1,7 @@
-import { EventManager } from "./EventManager";
-import {
-  IProduct,
-  IProductRepository,
-  UIEvents,
-} from "./src/types/interfaces/IProduct";
+import { EventManager } from "../services/EventManager";
+import { UIEvents } from "../types/enums/UIEvents";
+import { IProduct } from "../types/interfaces/IProduct";
+import { IProductRepository } from "../types/interfaces/IProductRepository";
 
 export abstract class BaseUIComponent {
   protected eventManager: EventManager;

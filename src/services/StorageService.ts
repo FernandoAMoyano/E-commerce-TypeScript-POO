@@ -1,4 +1,4 @@
-import { ICartItem } from "./src/types/interfaces/IProduct";
+import { ICartItem } from "../types/interfaces/ICartItem";
 
 export class StorageService {
   private static readonly CART_KEY = "cart";

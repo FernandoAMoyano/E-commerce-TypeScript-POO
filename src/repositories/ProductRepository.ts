@@ -1,4 +1,5 @@
-import { IProduct, IProductRepository } from "./src/types/interfaces/IProduct";
+import { IProduct } from "../types/interfaces/IProduct";
+import { IProductRepository } from "../types/interfaces/IProductRepository";
 
 export class ProductRepository implements IProductRepository {
   private readonly products: IProduct[] = [

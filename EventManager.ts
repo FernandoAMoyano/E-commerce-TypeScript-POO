@@ -1,4 +1,4 @@
-import { IEventListener } from "./interfaces/interfaces";
+import { IEventListener } from "./src/types/interfaces/IProduct";
 
 export class EventManager {
   private static instance: EventManager;

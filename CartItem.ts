@@ -1,4 +1,4 @@
-import { ICartItem, IProduct } from "./interfaces/interfaces";
+import { ICartItem, IProduct } from "./src/types/interfaces/IProduct";
 
 export class CartItem implements ICartItem {
   public id: number;

@@ -1,4 +1,4 @@
-import { CartEvents, ICartItem } from "./interfaces/interfaces";
+import { CartEvents, ICartItem } from "./src/types/interfaces/IProduct";
 import { NotificationService } from "./NotificationService";
 import { CartManager } from "./cartManager";
 import { BaseUIComponent } from "./BaseUIComponent";

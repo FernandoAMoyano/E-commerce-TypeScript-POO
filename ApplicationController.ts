@@ -9,7 +9,7 @@ import {
   IProduct,
   IProductRepository,
   UIEvents,
-} from "./interfaces/interfaces";
+} from "./src/types/interfaces/IProduct";
 import { NotificationService } from "./NotificationService";
 import { ProductRepository } from "./ProductRepository";
 

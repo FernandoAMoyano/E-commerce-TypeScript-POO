@@ -1,5 +1,5 @@
 import { BaseUIComponent } from "./BaseUIComponent";
-import { ICartItem } from "./interfaces/interfaces";
+import { ICartItem } from "./src/types/interfaces/IProduct";
 import { StorageService } from "./StorageService";
 
 export class CheckoutComponent extends BaseUIComponent {

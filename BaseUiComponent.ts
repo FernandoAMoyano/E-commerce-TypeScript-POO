@@ -3,7 +3,7 @@ import {
   IProduct,
   IProductRepository,
   UIEvents,
-} from "./interfaces/interfaces";
+} from "./src/types/interfaces/IProduct";
 
 export abstract class BaseUIComponent {
   protected eventManager: EventManager;

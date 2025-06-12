@@ -5,7 +5,7 @@ import {
   ICartItem,
   ICartManager,
   IProduct,
-} from "./interfaces/interfaces";
+} from "./src/types/interfaces/IProduct";
 import { StorageService } from "./StorageService";
 
 export class CartManager implements ICartManager {

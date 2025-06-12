@@ -1,6 +1,7 @@
 import { CartItem } from "../entities/CartItem";
 import { CartEvents } from "../types/enums/CartEvents";
 import { ICartItem } from "../types/interfaces/ICartItem";
+import { ICartItemAddedEvent } from "../types/interfaces/ICartItemAddedEvent";
 import { ICartManager } from "../types/interfaces/ICartManager";
 import { IProduct } from "../types/interfaces/IProduct";
 import { EventManager } from "./EventManager";
@@ -46,7 +47,10 @@ export class CartManager implements ICartManager {
     }
 
     this.saveToStorage();
-    this.eventManager.emit(CartEvents.ITEM_ADDED, { product, quantity });
+    this.eventManager.emit<ICartItemAddedEvent>(CartEvents.ITEM_ADDED, {
+      product,
+      quantity,
+    });
   }
 
   public removeItem(productId: number): void {
@@ -55,7 +59,13 @@ export class CartManager implements ICartManager {
     this.saveToStorage();
 
     if (itemToRemove) {
-      this.eventManager.emit(CartEvents.ITEM_REMOVED, itemToRemove);
+      this.eventManager.emit<ICartItem>(CartEvents.ITEM_REMOVED, {
+        id: itemToRemove.id,
+        title: itemToRemove.title,
+        price: itemToRemove.price,
+        quantity: itemToRemove.quantity,
+        image: itemToRemove.image,
+      });
     }
   }
 

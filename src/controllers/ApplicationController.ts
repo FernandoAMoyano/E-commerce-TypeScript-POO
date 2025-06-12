@@ -7,9 +7,10 @@ import { IProduct } from "../types/interfaces/IProduct";
 import { UIEvents } from "../types/enums/UIEvents";
 import { CartEvents } from "../types/enums/CartEvents";
 import { ICartItem } from "../types/interfaces/ICartItem";
-import { ProductListComponent } from "../components/BaseUIComponent";
 import { ProductRepository } from "../repositories/ProductRepository";
 import { EventManager } from "../services/EventManager";
+import { ProductListComponent } from "../components/ProductListComponent";
+import { ICartItemAddedEvent } from "../types/interfaces/ICartItemAddedEvent";
 
 export class ApplicationController {
   private cartManager: CartManager;
@@ -51,23 +52,33 @@ export class ApplicationController {
   private setupApplicationEventListeners(): void {
     this.eventManager.subscribe<IProduct>(
       UIEvents.PRODUCT_CLICKED,
-      (product) => {
+      (product: IProduct) => {
         this.cartManager.addItem(product, 1);
       }
     );
 
-    this.eventManager.subscribe<{ product: IProduct; quantity: number }>(
+    this.eventManager.subscribe<ICartItemAddedEvent>(
       CartEvents.ITEM_ADDED,
-      (data) => {
+      (data: ICartItemAddedEvent) => {
         NotificationService.showSuccess(
           `${data.product.title} agregado al carrito`
         );
       }
     );
 
-    this.eventManager.subscribe<ICartItem>(CartEvents.ITEM_REMOVED, (item) => {
-      NotificationService.showSuccess("Producto eliminado del carrito");
-    });
+    this.eventManager.subscribe<ICartItem>(
+      CartEvents.ITEM_REMOVED,
+      (item: ICartItem) => {
+        NotificationService.showSuccess(`${item.title} eliminado del carrito`);
+      }
+    );
+
+    this.eventManager.subscribe<ICartItem[]>(
+      CartEvents.CART_UPDATED,
+      (items: ICartItem[]) => {
+        console.log(`Carrito actualizado: ${items.length} items`);
+      }
+    );
   }
 
   private setupCartToggle(): void {

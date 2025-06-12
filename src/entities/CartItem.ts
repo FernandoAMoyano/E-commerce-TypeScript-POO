@@ -1,5 +1,5 @@
-import { ICartItem } from "../types/interfaces/ICartItem";
-import { IProduct } from "../types/interfaces/IProduct";
+import { ICartItem } from '../types/interfaces/ICartItem';
+import { IProduct } from '../types/interfaces/IProduct';
 
 export class CartItem implements ICartItem {
   public id: number;
@@ -22,7 +22,7 @@ export class CartItem implements ICartItem {
 
   public updateQuantity(newQuantity: number): void {
     if (newQuantity < 0) {
-      throw new Error("Quantity cannot be negative");
+      throw new Error('Quantity cannot be negative');
     }
     this.quantity = newQuantity;
   }

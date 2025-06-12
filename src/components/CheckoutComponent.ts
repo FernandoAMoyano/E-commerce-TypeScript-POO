@@ -1,6 +1,6 @@
-import { StorageService } from "../services/StorageService";
-import { ICartItem } from "../types/interfaces/ICartItem";
-import { BaseUIComponent } from "./BaseUIComponent";
+import { StorageService } from '../services/StorageService';
+import { ICartItem } from '../types/interfaces/ICartItem';
+import { BaseUIComponent } from './BaseUIComponent';
 
 export class CheckoutComponent extends BaseUIComponent {
   private itemsContainer: HTMLElement | null = null;
@@ -8,8 +8,8 @@ export class CheckoutComponent extends BaseUIComponent {
 
   constructor() {
     super();
-    this.itemsContainer = document.querySelector(".checkout__items");
-    this.totalContainer = document.querySelector(".checkout__total");
+    this.itemsContainer = document.querySelector('.checkout__items');
+    this.totalContainer = document.querySelector('.checkout__total');
     this.initialize();
   }
 
@@ -28,11 +28,11 @@ export class CheckoutComponent extends BaseUIComponent {
     const cart = StorageService.loadCheckoutCart();
     let total = 0;
 
-    this.itemsContainer.innerHTML = "";
+    this.itemsContainer.innerHTML = '';
 
     if (cart.length === 0) {
-      this.itemsContainer.innerHTML = "<p>No hay productos en el carrito.</p>";
-      this.totalContainer.innerHTML = "";
+      this.itemsContainer.innerHTML = '<p>No hay productos en el carrito.</p>';
+      this.totalContainer.innerHTML = '';
     } else {
       cart.forEach((item) => {
         const subtotal = item.price * item.quantity;
@@ -52,13 +52,13 @@ export class CheckoutComponent extends BaseUIComponent {
     item: ICartItem,
     subtotal: number
   ): HTMLElement {
-    const div = document.createElement("div");
-    div.className = "checkout__item";
+    const div = document.createElement('div');
+    div.className = 'checkout__item';
     div.innerHTML = `
       <div class="cart__item-title">${item.title}</div>
       <div>${item.price.toFixed(2)} x ${item.quantity} = $${subtotal.toFixed(
-      2
-    )}</div>
+        2
+      )}</div>
     `;
     return div;
   }

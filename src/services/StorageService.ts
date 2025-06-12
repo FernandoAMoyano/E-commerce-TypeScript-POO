@@ -1,8 +1,8 @@
-import { ICartItem } from "../types/interfaces/ICartItem";
+import { ICartItem } from '../types/interfaces/ICartItem';
 
 export class StorageService {
-  private static readonly CART_KEY = "cart";
-  private static readonly CHECKOUT_KEY = "checkoutCart";
+  private static readonly CART_KEY = 'cart';
+  private static readonly CHECKOUT_KEY = 'checkoutCart';
 
   public static saveCart(items: ICartItem[]): void {
     localStorage.setItem(this.CART_KEY, JSON.stringify(items));

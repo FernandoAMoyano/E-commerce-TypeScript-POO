@@ -1,5 +1,5 @@
-import { ICartItem } from "./ICartItem";
-import { IProduct } from "./IProduct";
+import { ICartItem } from './ICartItem';
+import { IProduct } from './IProduct';
 
 export interface ICartManager {
   addItem(product: IProduct, quantity?: number): void;

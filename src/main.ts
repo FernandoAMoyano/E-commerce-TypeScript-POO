@@ -1,6 +1,6 @@
-import { ApplicationController } from "./controllers/ApplicationController";
+import { ApplicationController } from './controllers/ApplicationController';
 
 // Punto de entrada de la aplicación
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   new ApplicationController();
 });

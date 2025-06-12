@@ -1,12 +1,12 @@
-import { CartItem } from "../entities/CartItem";
-import { CartEvents } from "../types/enums/CartEvents";
-import { ICartItem } from "../types/interfaces/ICartItem";
-import { ICartItemAddedEvent } from "../types/interfaces/ICartItemAddedEvent";
-import { ICartManager } from "../types/interfaces/ICartManager";
-import { IProduct } from "../types/interfaces/IProduct";
-import { EventManager } from "./EventManager";
+import { CartItem } from '../entities/CartItem';
+import { CartEvents } from '../types/enums/CartEvents';
+import { ICartItem } from '../types/interfaces/ICartItem';
+import { ICartItemAddedEvent } from '../types/interfaces/ICartItemAddedEvent';
+import { ICartManager } from '../types/interfaces/ICartManager';
+import { IProduct } from '../types/interfaces/IProduct';
+import { EventManager } from './EventManager';
 
-import { StorageService } from "./StorageService";
+import { StorageService } from './StorageService';
 
 export class CartManager implements ICartManager {
   private static instance: CartManager;

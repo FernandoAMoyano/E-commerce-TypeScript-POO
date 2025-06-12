@@ -1,8 +1,8 @@
-import { NotificationService } from "../services/NotificationService";
-import { CartManager } from "../services/cartManager";
-import { CartEvents } from "../types/enums/CartEvents";
-import { ICartItem } from "../types/interfaces/ICartItem";
-import { BaseUIComponent } from "./BaseUIComponent";
+import { NotificationService } from '../services/NotificationService';
+import { CartManager } from '../services/cartManager';
+import { CartEvents } from '../types/enums/CartEvents';
+import { ICartItem } from '../types/interfaces/ICartItem';
+import { BaseUIComponent } from './BaseUIComponent';
 
 export class CartComponent extends BaseUIComponent {
   private itemsContainer: HTMLElement | null = null;
@@ -17,10 +17,10 @@ export class CartComponent extends BaseUIComponent {
   }
 
   private initializeElements(): void {
-    this.itemsContainer = document.querySelector(".cart__items");
-    this.totalContainer = document.querySelector(".cart__totalPrice");
-    this.countElement = document.querySelector(".cart__item-count");
-    this.checkoutButton = document.querySelector(".cart__checkout");
+    this.itemsContainer = document.querySelector('.cart__items');
+    this.totalContainer = document.querySelector('.cart__totalPrice');
+    this.countElement = document.querySelector('.cart__item-count');
+    this.checkoutButton = document.querySelector('.cart__checkout');
   }
 
   protected initialize(): void {
@@ -36,14 +36,14 @@ export class CartComponent extends BaseUIComponent {
 
     if (this.itemsContainer) {
       this.itemsContainer.addEventListener(
-        "click",
+        'click',
         this.handleCartAction.bind(this)
       );
     }
 
     if (this.checkoutButton) {
       this.checkoutButton.addEventListener(
-        "click",
+        'click',
         this.handleCheckout.bind(this)
       );
     }
@@ -59,7 +59,7 @@ export class CartComponent extends BaseUIComponent {
   private updateCartItems(): void {
     if (!this.itemsContainer) return;
 
-    this.itemsContainer.innerHTML = "";
+    this.itemsContainer.innerHTML = '';
     const cartItems = this.cartManager.getItems();
 
     cartItems.forEach((item) => {
@@ -69,17 +69,17 @@ export class CartComponent extends BaseUIComponent {
   }
 
   private createCartItemElement(item: ICartItem): HTMLElement {
-    const cartItem = document.createElement("div");
-    cartItem.classList.add("cart__item");
-    cartItem.setAttribute("data-id", item.id.toString());
+    const cartItem = document.createElement('div');
+    cartItem.classList.add('cart__item');
+    cartItem.setAttribute('data-id', item.id.toString());
 
     const subtotal = item.price * item.quantity;
 
     cartItem.innerHTML = `
       <div class="cart__item-title">${item.title}</div>
       <div>${item.price.toFixed(2)} x ${item.quantity} = $${subtotal.toFixed(
-      2
-    )}</div>
+        2
+      )}</div>
       <div>
         <button class="cart__increase">+</button>
         <button class="cart__decrease">-</button>
@@ -105,9 +105,9 @@ export class CartComponent extends BaseUIComponent {
 
     if (totalItems > 0) {
       this.countElement.innerText = totalItems.toString();
-      this.countElement.style.display = "flex";
+      this.countElement.style.display = 'flex';
     } else {
-      this.countElement.style.display = "none";
+      this.countElement.style.display = 'none';
     }
   }
 
@@ -116,35 +116,35 @@ export class CartComponent extends BaseUIComponent {
 
     const cartItems = this.cartManager.getItems();
     this.checkoutButton.style.display =
-      cartItems.length > 0 ? "inline-block" : "none";
+      cartItems.length > 0 ? 'inline-block' : 'none';
   }
 
   private async handleCartAction(event: Event): Promise<void> {
     const target = event.target as HTMLElement;
-    const cartItem = target.closest(".cart__item") as HTMLElement;
+    const cartItem = target.closest('.cart__item') as HTMLElement;
 
     if (!cartItem) return;
 
-    const productId = parseInt(cartItem.getAttribute("data-id") || "0");
+    const productId = parseInt(cartItem.getAttribute('data-id') || '0');
 
-    if (target.classList.contains("cart__remove")) {
+    if (target.classList.contains('cart__remove')) {
       const confirmed = await NotificationService.showConfirmation(
-        "¿Estás seguro?",
-        "Este producto será eliminado del carrito."
+        '¿Estás seguro?',
+        'Este producto será eliminado del carrito.'
       );
 
       if (confirmed) {
         this.cartManager.removeItem(productId);
       }
-    } else if (target.classList.contains("cart__increase")) {
+    } else if (target.classList.contains('cart__increase')) {
       this.cartManager.increaseQuantity(productId);
-    } else if (target.classList.contains("cart__decrease")) {
+    } else if (target.classList.contains('cart__decrease')) {
       this.cartManager.decreaseQuantity(productId);
     }
   }
 
   private handleCheckout(): void {
     this.cartManager.prepareCheckout();
-    window.location.href = "checkout.html";
+    window.location.href = 'checkout.html';
   }
 }

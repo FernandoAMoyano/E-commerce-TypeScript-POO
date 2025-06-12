@@ -1,16 +1,16 @@
-import { CartComponent } from "../components/CartComponent";
-import { CartManager } from "../services/cartManager";
-import { CheckoutComponent } from "../components/CheckoutComponent";
-import { NotificationService } from "../services/NotificationService";
-import { IProductRepository } from "../types/interfaces/IProductRepository";
-import { IProduct } from "../types/interfaces/IProduct";
-import { UIEvents } from "../types/enums/UIEvents";
-import { CartEvents } from "../types/enums/CartEvents";
-import { ICartItem } from "../types/interfaces/ICartItem";
-import { ProductRepository } from "../repositories/ProductRepository";
-import { EventManager } from "../services/EventManager";
-import { ProductListComponent } from "../components/ProductListComponent";
-import { ICartItemAddedEvent } from "../types/interfaces/ICartItemAddedEvent";
+import { CartComponent } from '../components/CartComponent';
+import { CartManager } from '../services/cartManager';
+import { CheckoutComponent } from '../components/CheckoutComponent';
+import { NotificationService } from '../services/NotificationService';
+import { IProductRepository } from '../types/interfaces/IProductRepository';
+import { IProduct } from '../types/interfaces/IProduct';
+import { UIEvents } from '../types/enums/UIEvents';
+import { CartEvents } from '../types/enums/CartEvents';
+import { ICartItem } from '../types/interfaces/ICartItem';
+import { ProductRepository } from '../repositories/ProductRepository';
+import { EventManager } from '../services/EventManager';
+import { ProductListComponent } from '../components/ProductListComponent';
+import { ICartItemAddedEvent } from '../types/interfaces/ICartItemAddedEvent';
 
 export class ApplicationController {
   private cartManager: CartManager;
@@ -36,7 +36,7 @@ export class ApplicationController {
 
   private initializeComponents(): void {
     // Initialize components based on current page
-    if (document.getElementById("productList")) {
+    if (document.getElementById('productList')) {
       this.productListComponent = new ProductListComponent(
         this.productRepository
       );
@@ -44,7 +44,7 @@ export class ApplicationController {
       this.setupCartToggle();
     }
 
-    if (document.querySelector(".checkout__items")) {
+    if (document.querySelector('.checkout__items')) {
       this.checkoutComponent = new CheckoutComponent();
     }
   }
@@ -82,19 +82,19 @@ export class ApplicationController {
   }
 
   private setupCartToggle(): void {
-    const cartOpenButton = document.querySelector(".cart__openButton");
-    const cartSidebar = document.querySelector(".cart__sidebar");
-    const cartCloseButton = document.querySelector(".cart__close");
+    const cartOpenButton = document.querySelector('.cart__openButton');
+    const cartSidebar = document.querySelector('.cart__sidebar');
+    const cartCloseButton = document.querySelector('.cart__close');
 
     if (cartOpenButton && cartSidebar) {
-      cartOpenButton.addEventListener("click", () => {
-        cartSidebar.classList.add("cart__sidebar--open");
+      cartOpenButton.addEventListener('click', () => {
+        cartSidebar.classList.add('cart__sidebar--open');
       });
     }
 
     if (cartCloseButton && cartSidebar) {
-      cartCloseButton.addEventListener("click", () => {
-        cartSidebar.classList.remove("cart__sidebar--open");
+      cartCloseButton.addEventListener('click', () => {
+        cartSidebar.classList.remove('cart__sidebar--open');
       });
     }
   }

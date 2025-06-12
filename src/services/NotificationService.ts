@@ -1,19 +1,19 @@
-import Swal from "sweetalert2";
+import Swal from 'sweetalert2';
 
 export class NotificationService {
   private static Toast: any = null;
 
   public static initialize(): void {
-    if (typeof Swal !== "undefined") {
+    if (typeof Swal !== 'undefined') {
       this.Toast = Swal.mixin({
         toast: true,
-        position: "top-end",
+        position: 'top-end',
         showConfirmButton: false,
         timer: 2000,
         timerProgressBar: true,
         didOpen: (toast: any) => {
-          toast.addEventListener("mouseenter", Swal.stopTimer);
-          toast.addEventListener("mouseleave", Swal.resumeTimer);
+          toast.addEventListener('mouseenter', Swal.stopTimer);
+          toast.addEventListener('mouseleave', Swal.resumeTimer);
         },
       });
     }
@@ -22,7 +22,7 @@ export class NotificationService {
   public static showSuccess(message: string): void {
     if (this.Toast) {
       this.Toast.fire({
-        icon: "success",
+        icon: 'success',
         title: message,
       });
     } else {
@@ -34,16 +34,16 @@ export class NotificationService {
     title: string,
     text: string
   ): Promise<boolean> {
-    if (typeof Swal !== "undefined") {
+    if (typeof Swal !== 'undefined') {
       const result = await Swal.fire({
         title,
         text,
-        icon: "warning",
+        icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Sí, eliminar",
-        cancelButtonText: "Cancelar",
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Sí, eliminar',
+        cancelButtonText: 'Cancelar',
       });
       return result.isConfirmed;
     } else {

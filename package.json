@@ -1,8 +1,37 @@
 {
-  "devDependencies": {
-    "typescript": "^5.8.3"
+  "name": "ecommerce-typescript",
+  "version": "1.0.0",
+  "description": "E-commerce desarrollado con TypeScript aplicando patrones de diseño",
+  "main": "dist/main.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "tsc --watch",
+    "build:clean": "rimraf dist && tsc",
+    "format": "prettier --write src/**/*.ts",
+    "format:check": "prettier --check src/**/*.ts"
   },
+  "keywords": [
+    "typescript",
+    "ecommerce",
+    "design-patterns"
+  ],
+  "author": "Fernando Moyano",
+  "license": "MIT",
   "dependencies": {
     "sweetalert2": "^11.6.13"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.8.3"
+  },
+  "prettier": {
+    "semi": true,
+    "trailingComma": "es5",
+    "singleQuote": true,
+    "printWidth": 80,
+    "tabWidth": 2,
+    "useTabs": false,
+    "endOfLine": "lf"
   }
 }

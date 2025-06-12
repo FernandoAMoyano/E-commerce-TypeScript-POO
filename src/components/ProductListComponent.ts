@@ -1,15 +1,15 @@
-import { UIEvents } from "../types/enums/UIEvents";
-import { BaseUIComponent } from "./BaseUIComponent";
-import { IProductRepository } from "../types/interfaces/IProductRepository";
-import { IProduct } from "../types/interfaces/IProduct";
-import { EventManager } from "../services/EventManager";
+import { UIEvents } from '../types/enums/UIEvents';
+import { BaseUIComponent } from './BaseUIComponent';
+import { IProductRepository } from '../types/interfaces/IProductRepository';
+import { IProduct } from '../types/interfaces/IProduct';
+import { EventManager } from '../services/EventManager';
 
 export class ProductListComponent extends BaseUIComponent {
   private container: HTMLElement | null = null;
 
   constructor(private productRepository: IProductRepository) {
     super();
-    this.container = document.getElementById("productList");
+    this.container = document.getElementById('productList');
     this.initialize();
   }
 
@@ -23,7 +23,7 @@ export class ProductListComponent extends BaseUIComponent {
   protected setupEventListeners(): void {
     if (this.container) {
       this.container.addEventListener(
-        "click",
+        'click',
         this.handleProductClick.bind(this)
       );
     }
@@ -41,15 +41,15 @@ export class ProductListComponent extends BaseUIComponent {
   }
 
   private createProductCard(product: IProduct): HTMLElement {
-    const productCard = document.createElement("article");
-    productCard.classList.add("product");
-    productCard.setAttribute("data-id", product.id.toString());
+    const productCard = document.createElement('article');
+    productCard.classList.add('product');
+    productCard.setAttribute('data-id', product.id.toString());
 
     productCard.innerHTML = `
       <div>
         <img class="product__image" src="${product.image}" alt="${
-      product.title
-    }" />
+          product.title
+        }" />
       </div>
       <div>
         <h5 class="product__title">${product.title}</h5>
@@ -64,9 +64,9 @@ export class ProductListComponent extends BaseUIComponent {
   private handleProductClick(event: Event): void {
     const target = event.target as HTMLElement;
 
-    if (target.classList.contains("product__add")) {
-      const card = target.closest(".product") as HTMLElement;
-      const productId = parseInt(card.getAttribute("data-id") || "0");
+    if (target.classList.contains('product__add')) {
+      const card = target.closest('.product') as HTMLElement;
+      const productId = parseInt(card.getAttribute('data-id') || '0');
       const product = this.productRepository.getProductById(productId);
 
       if (product) {

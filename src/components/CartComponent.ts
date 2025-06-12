@@ -1,6 +1,7 @@
-import { CartEvents, ICartItem } from "./src/types/interfaces/IProduct";
-import { NotificationService } from "./NotificationService";
-import { CartManager } from "./cartManager";
+import { NotificationService } from "../services/NotificationService";
+import { CartManager } from "../services/cartManager";
+import { CartEvents } from "../types/enums/CartEvents";
+import { ICartItem } from "../types/interfaces/ICartItem";
 import { BaseUIComponent } from "./BaseUIComponent";
 
 export class CartComponent extends BaseUIComponent {

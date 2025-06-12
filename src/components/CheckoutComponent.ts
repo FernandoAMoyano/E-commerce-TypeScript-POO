@@ -1,6 +1,6 @@
+import { StorageService } from "../services/StorageService";
+import { ICartItem } from "../types/interfaces/ICartItem";
 import { BaseUIComponent } from "./BaseUIComponent";
-import { ICartItem } from "./src/types/interfaces/IProduct";
-import { StorageService } from "./StorageService";
 
 export class CheckoutComponent extends BaseUIComponent {
   private itemsContainer: HTMLElement | null = null;

@@ -1,19 +1,17 @@
-import { ProductListComponent } from "./BaseUIComponent";
-import { CartComponent } from "./CartComponent";
-import { CartManager } from "./cartManager";
-import { CheckoutComponent } from "./CheckoutComponent";
-import { EventManager } from "./EventManager";
-import {
-  CartEvents,
-  ICartItem,
-  IProduct,
-  IProductRepository,
-  UIEvents,
-} from "./src/types/interfaces/IProduct";
-import { NotificationService } from "./NotificationService";
-import { ProductRepository } from "./ProductRepository";
+import { CartComponent } from "../components/CartComponent";
+import { CartManager } from "../services/cartManager";
+import { CheckoutComponent } from "../components/CheckoutComponent";
+import { EventManager } from "../../EventManager";
+import { NotificationService } from "../services/NotificationService";
+import { IProductRepository } from "../types/interfaces/IProductRepository";
+import { IProduct } from "../types/interfaces/IProduct";
+import { UIEvents } from "../types/enums/UIEvents";
+import { CartEvents } from "../types/enums/CartEvents";
+import { ICartItem } from "../types/interfaces/ICartItem";
+import { ProductListComponent } from "../components/BaseUIComponent";
+import { ProductRepository } from "../repositories/ProductRepository";
 
-class ApplicationController {
+export class ApplicationController {
   private cartManager: CartManager;
   private productRepository: IProductRepository;
   private eventManager: EventManager;

@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <title>E-commerce TypeScript</title>
+  </head>
+  <body>
+    <!-- Contenedor principal de los productos -->
+    <div class="products" id="productList"></div>
+
+    <!-- Boton para abrir el sidebar -->
+    <div>
+      <button class="cart__openButton">Abrir Carrito</button>
+      <!-- indicador de la cantidad de productos en el carrito -->
+      <span class="cart__item-count" style="display: none">0</span>
+    </div>
+
+    <!-- Carrito de compras -->
+    <div id="cartSidebar" class="cart__sidebar">
+      <button class="cart__close">X</button>
+
+      <div class="cart__container">
+        <h2>Tu carrito</h2>
+        <div class="cart__items"></div>
+      </div>
+
+      <div class="cart__totalPrice"></div>
+      <button class="cart__checkout" style="display: none; margin-left: 10px">
+        Checkout
+      </button>
+    </div>
+
+    <script type="module" src="../src/main.ts"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  </body>
+</html>
